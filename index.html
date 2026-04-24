@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sergio Lopez - Consultor de Negocio y Transformacion Digital</title>
+  <title>Sergio López – Consultor de Negocio y Transformación Digital</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -18,7 +18,9 @@
       --card:   #f8fafc;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: Inter, sans-serif; color: var(--text); background: var(--white); line-height: 1.7; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.7; }
+
+    /* NAV */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       background: rgba(15,32,68,.96); backdrop-filter: blur(8px);
@@ -27,21 +29,29 @@
     }
     .nav-logo { color: var(--white); font-weight: 700; font-size: 1.1rem; letter-spacing: .5px; }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { color: rgba(255,255,255,.75); text-decoration: none; font-size: .85rem; font-weight: 500; letter-spacing: .5px; text-transform: uppercase; transition: color .2s; }
+    .nav-links a {
+      color: rgba(255,255,255,.75); text-decoration: none; font-size: .85rem;
+      font-weight: 500; letter-spacing: .5px; text-transform: uppercase; transition: color .2s;
+    }
     .nav-links a:hover { color: var(--white); }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
     .hamburger span { display: block; width: 24px; height: 2px; background: white; border-radius: 2px; transition: all .3s; }
+
+    /* SECTIONS */
     section { padding: 90px 5%; }
     .section-title { font-size: 1.8rem; font-weight: 800; color: var(--navy); margin-bottom: .4rem; }
     .section-title span { color: var(--accent); }
     .title-line { width: 48px; height: 4px; background: var(--accent); border-radius: 2px; margin-bottom: 3rem; }
+
+    /* SCROLL REVEAL */
     .reveal { opacity: 0; transform: translateY(32px); transition: opacity .65s ease, transform .65s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* HERO */
     #hero {
       min-height: 100vh;
       background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 60%, #1e4fa0 100%);
-      display: flex; align-items: center; justify-content: center;
-      padding-top: 62px; position: relative; overflow: hidden;
+      display: flex; align-items: center; padding-top: 62px; position: relative; overflow: hidden;
     }
     #hero::before {
       content: ''; position: absolute; inset: 0;
@@ -49,51 +59,100 @@
     }
     .hero-inner {
       position: relative; z-index: 1; display: flex;
-      flex-direction: column; align-items: center; text-align: center;
-      gap: 2.5rem; max-width: 900px; width: 100%;
+      align-items: center; gap: 4rem; max-width: 1200px; width: 100%;
     }
     .hero-photo-wrap {
       flex-shrink: 0;
-      width: 280px; height: 280px;
-      border-radius: 50%;
-      border: 5px solid rgba(255,255,255,.3);
-      box-shadow: 0 0 0 10px rgba(37,99,235,.25), 0 30px 70px rgba(0,0,0,.5);
+      width: 420px; height: 540px;
+      border-radius: 20px;
+      border: 4px solid rgba(255,255,255,.2);
+      box-shadow: 0 0 0 8px rgba(37,99,235,.2), 0 30px 70px rgba(0,0,0,.5);
       overflow: hidden;
       background: #1a3a6b;
     }
     .hero-photo-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
-    .hero-content { flex: 1; max-width: 700px; }
-    .hero-name { font-size: clamp(2.4rem, 5vw, 4.2rem); font-weight: 800; color: var(--white); line-height: 1.1; margin-bottom: .8rem; }
+    .hero-content { flex: 1; }
+    .hero-name {
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      font-weight: 800; color: var(--white); line-height: 1.1; margin-bottom: .8rem;
+    }
     .hero-name span { color: #60a5fa; }
-    .hero-title { font-size: clamp(.95rem, 1.8vw, 1.25rem); color: rgba(255,255,255,.75); font-weight: 400; margin-bottom: 1.6rem; }
-    .hero-bio { color: rgba(255,255,255,.65); font-size: .95rem; max-width: 560px; margin: 0 auto 2rem; line-height: 1.8; }
-    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
-    .btn { display: inline-flex; align-items: center; gap: .45rem; padding: .72rem 1.5rem; border-radius: 8px; font-size: .9rem; font-weight: 600; cursor: pointer; text-decoration: none; transition: all .2s; }
+    .hero-title { font-size: clamp(1.3rem, 2.5vw, 1.75rem); color: rgba(255,255,255,.75); font-weight: 400; margin-bottom: 1.6rem; }
+    .hero-bio { color: rgba(255,255,255,.65); font-size: 1.25rem; max-width: 640px; margin-bottom: 2rem; line-height: 1.9; }
+    .hero-cta { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: .45rem;
+      padding: .9rem 2rem; border-radius: 8px;
+      font-size: 1.05rem; font-weight: 600; cursor: pointer; text-decoration: none; transition: all .2s;
+    }
     .btn-primary { background: var(--accent); color: var(--white); border: 2px solid var(--accent); }
     .btn-primary:hover { background: #1d4ed8; border-color: #1d4ed8; transform: translateY(-2px); }
     .btn-outline { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,.4); }
     .btn-outline:hover { border-color: var(--white); transform: translateY(-2px); }
-    .hero-chips { display: flex; gap: .6rem; flex-wrap: wrap; margin-top: 1.8rem; justify-content: center; }
-    .chip { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); color: rgba(255,255,255,.8); border-radius: 6px; padding: .3rem .8rem; font-size: .78rem; font-weight: 500; }
+    .hero-chips { display: flex; gap: .6rem; flex-wrap: wrap; margin-top: 1.8rem; }
+    .chip {
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15);
+      color: rgba(255,255,255,.8); border-radius: 6px; padding: .5rem 1.1rem; font-size: 1rem; font-weight: 500;
+    }
+
+    /* ABOUT */
     #about { background: var(--card); }
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: start; }
+    .about-right { display: flex; flex-direction: column; gap: 1.8rem; }
+    .about-photo-wrap {
+      width: 100%; height: 480px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,.18);
+    }
+    .about-photo-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
     .about-text p { color: var(--gray); margin-bottom: 1rem; }
-    .contact-list { list-style: none; margin-top: 1.5rem; }
-    .contact-list li { display: flex; align-items: center; gap: .75rem; color: var(--gray); font-size: .9rem; margin-bottom: .65rem; }
-    .contact-list .icon { width: 34px; height: 34px; border-radius: 8px; background: var(--accent); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .contact-list .icon svg { width: 16px; height: 16px; fill: white; }
-    .contact-list a { color: var(--accent); text-decoration: none; }
-    .contact-list a:hover { text-decoration: underline; }
-    .kpmg-banner { background: linear-gradient(135deg, var(--navy), var(--blue)); border-radius: 12px; padding: 1.8rem; color: white; }
+    .contact-pills { display: flex; gap: .9rem; flex-wrap: wrap; margin-top: 1.8rem; }
+    .contact-pill {
+      display: inline-flex; align-items: center; gap: 0;
+      background: var(--accent); border-radius: 50px;
+      width: 46px; height: 46px; overflow: hidden;
+      transition: width .4s ease, gap .4s ease, padding .4s ease;
+      text-decoration: none; color: white;
+      padding: 0 12px; cursor: pointer;
+      box-shadow: 0 4px 12px rgba(37,99,235,.3);
+    }
+    .contact-pill:hover {
+      width: 260px; gap: .7rem; padding: 0 1.3rem 0 12px;
+    }
+    .contact-pill svg { width: 22px; height: 22px; fill: white; flex-shrink: 0; }
+    .contact-pill .pill-text {
+      white-space: nowrap; font-size: .88rem; font-weight: 600;
+      opacity: 0; transition: opacity .2s ease .15s;
+    }
+    .contact-pill:hover .pill-text { opacity: 1; }
+    .kpmg-banner {
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      border-radius: 12px; padding: 1.8rem; color: white;
+    }
     .kpmg-banner h3 { font-size: 1rem; font-weight: 700; margin-bottom: .4rem; }
     .kpmg-banner p { font-size: .85rem; opacity: .8; }
-    .kpmg-label { display: inline-block; background: var(--accent); color: white; border-radius: 4px; font-size: .7rem; font-weight: 700; padding: .15rem .5rem; margin-bottom: .6rem; text-transform: uppercase; letter-spacing: .5px; }
+    .kpmg-label {
+      display: inline-block; background: var(--accent); color: white;
+      border-radius: 4px; font-size: .7rem; font-weight: 700;
+      padding: .15rem .5rem; margin-bottom: .6rem; text-transform: uppercase; letter-spacing: .5px;
+    }
+
+    /* EXPERIENCE */
     #experience { background: var(--white); }
     .timeline { position: relative; padding-left: 2rem; }
     .timeline::before { content: ''; position: absolute; left: 7px; top: 0; bottom: 0; width: 2px; background: var(--light); }
     .tl-item { position: relative; margin-bottom: 2.8rem; }
-    .tl-dot { position: absolute; left: -2rem; top: 4px; width: 16px; height: 16px; border-radius: 50%; background: var(--accent); border: 3px solid var(--white); box-shadow: 0 0 0 2px var(--accent); }
-    .tl-card { background: var(--card); border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.5rem 1.8rem; transition: box-shadow .2s, transform .2s; }
+    .tl-dot {
+      position: absolute; left: -2rem; top: 4px;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: var(--accent); border: 3px solid var(--white); box-shadow: 0 0 0 2px var(--accent);
+    }
+    .tl-card {
+      background: var(--card); border: 1px solid #e2e8f0;
+      border-radius: 12px; padding: 1.5rem 1.8rem;
+      transition: box-shadow .2s, transform .2s;
+    }
     .tl-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,.08); transform: translateY(-2px); }
     .tl-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap; }
     .tl-company { font-size: 1rem; font-weight: 700; color: var(--navy); }
@@ -102,7 +161,9 @@
     .tl-badge-active { background: #dcfce7; color: #16a34a; border-radius: 6px; padding: .25rem .7rem; font-size: .72rem; font-weight: 700; white-space: nowrap; }
     .tl-list { list-style: none; margin-top: 1rem; }
     .tl-list li { color: var(--gray); font-size: .88rem; padding: .3rem 0; display: flex; align-items: flex-start; gap: .6rem; }
-    .tl-list li::before { content: 'u25B8'; color: var(--accent); font-size: .8rem; margin-top: .15rem; flex-shrink: 0; }
+    .tl-list li::before { content: '▸'; color: var(--accent); font-size: .8rem; margin-top: .15rem; flex-shrink: 0; }
+
+    /* SKILLS */
     #skills { background: var(--card); }
     .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
     .skill-item { margin-bottom: 1.4rem; }
@@ -120,9 +181,15 @@
     .lang-name { font-weight: 600; font-size: .9rem; color: var(--navy); }
     .lang-level { font-size: .78rem; color: var(--gray); }
     .lang-tag { margin-left: auto; background: var(--light); color: var(--accent); border-radius: 5px; padding: .2rem .6rem; font-size: .72rem; font-weight: 600; }
+
+    /* EDUCATION */
     #education { background: var(--white); }
     .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 1.4rem; }
-    .edu-card { background: var(--card); border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.6rem; position: relative; overflow: hidden; transition: box-shadow .2s, transform .2s; }
+    .edu-card {
+      background: var(--card); border: 1px solid #e2e8f0;
+      border-radius: 12px; padding: 1.6rem; position: relative; overflow: hidden;
+      transition: box-shadow .2s, transform .2s;
+    }
     .edu-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,.08); transform: translateY(-3px); }
     .edu-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--accent); }
     .edu-degree { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: .3rem; }
@@ -130,21 +197,35 @@
     .edu-year { display: inline-block; background: var(--light); color: var(--accent); border-radius: 5px; padding: .2rem .65rem; font-size: .75rem; font-weight: 600; }
     .edu-icon { position: absolute; right: 1.2rem; top: 1.2rem; width: 38px; height: 38px; border-radius: 8px; background: var(--light); display: flex; align-items: center; justify-content: center; }
     .edu-icon svg { width: 20px; height: 20px; fill: var(--accent); }
+
+    /* CONTACT */
     #contact { background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%); color: var(--white); text-align: center; }
     #contact .section-title { color: var(--white); }
     #contact .title-line { background: #60a5fa; margin: .4rem auto 2.5rem; }
     #contact p { color: rgba(255,255,255,.7); max-width: 520px; margin: 0 auto 2.5rem; }
     .contact-cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.2rem; }
-    .contact-card { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); border-radius: 12px; padding: 1.3rem 1.8rem; display: flex; align-items: center; gap: .9rem; text-decoration: none; color: var(--white); transition: all .2s; min-width: 220px; }
+    .contact-card {
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15);
+      border-radius: 12px; padding: 1.3rem 1.8rem;
+      display: flex; align-items: center; gap: .9rem;
+      text-decoration: none; color: var(--white); transition: all .2s; min-width: 220px;
+    }
     .contact-card:hover { background: rgba(255,255,255,.15); transform: translateY(-3px); }
     .contact-card .cc-icon { width: 42px; height: 42px; background: var(--accent); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .contact-card .cc-icon svg { width: 20px; height: 20px; fill: white; }
     .contact-card .cc-label { font-size: .72rem; color: rgba(255,255,255,.55); text-transform: uppercase; letter-spacing: .5px; }
     .contact-card .cc-value { font-size: .9rem; font-weight: 600; }
+
     footer { background: var(--navy); text-align: center; padding: 1.4rem; color: rgba(255,255,255,.35); font-size: .78rem; }
+
+    /* RESPONSIVE */
     @media (max-width: 900px) {
-      .hero-inner { gap: 2rem; }
-      .hero-photo-wrap { width: 200px; height: 200px; }
+      .hero-inner { flex-direction: column; text-align: center; gap: 2rem; }
+      .hero-photo-wrap { order: 1; width: 260px; height: 320px; border-radius: 14px; }
+      .hero-content { order: 2; }
+      .hero-bio { margin: 0 auto 2rem; }
+      .hero-cta { justify-content: center; }
+      .hero-chips { justify-content: center; }
     }
     @media (max-width: 768px) {
       .about-grid, .skills-grid { grid-template-columns: 1fr; }
@@ -159,13 +240,15 @@
   </style>
 </head>
 <body>
+
+  <!-- NAV -->
   <nav>
     <span class="nav-logo">SL</span>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#about">Sobre mi</a></li>
+      <li><a href="#about">Sobre mí</a></li>
       <li><a href="#experience">Experiencia</a></li>
       <li><a href="#skills">Habilidades</a></li>
-      <li><a href="#education">Formacion</a></li>
+      <li><a href="#education">Formación</a></li>
       <li><a href="#contact">Contacto</a></li>
     </ul>
     <div class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
@@ -173,18 +256,16 @@
     </div>
   </nav>
 
+  <!-- HERO -->
   <section id="hero">
     <div class="hero-inner">
-      <div class="hero-photo-wrap">
-        <img src="fotosergio.png" alt="Sergio Lopez Alvarez" />
-      </div>
       <div class="hero-content">
-        <h1 class="hero-name">Sergio <span>Lopez</span><br>Alvarez</h1>
-        <p class="hero-title">Consultor de Negocio y Transformacion Digital</p>
+        <h1 class="hero-name">Sergio <span>López</span><br>Álvarez</h1>
+        <p class="hero-title">Consultor de Negocio y Transformación Digital</p>
         <p class="hero-bio">
-          Graduado en Economia y estudiante de master en Big Data, con practicas en
-          KPMG - Strategy &amp; Transformation. Apasionado por el analisis de datos,
-          la inteligencia de negocio y la transformacion digital de las organizaciones.
+          Graduado en Economía y estudiante de máster en Big Data, con prácticas en
+          KPMG – Strategy &amp; Transformation. Apasionado por el análisis de datos,
+          la inteligencia de negocio y la transformación digital de las organizaciones.
         </p>
         <div class="hero-cta">
           <a class="btn btn-primary" href="#contact">Contactar</a>
@@ -196,46 +277,56 @@
           <span class="chip">Power BI</span>
           <span class="chip">Excel</span>
           <span class="chip">Big Data</span>
-          <span class="chip">Consultoria</span>
+          <span class="chip">Consultoría</span>
         </div>
+      </div>
+      <div class="hero-photo-wrap">
+        <img src="fotosergio.png" alt="Sergio López Álvarez" />
       </div>
     </div>
   </section>
 
+  <!-- ABOUT -->
   <section id="about">
     <div class="reveal">
-      <h2 class="section-title">Sobre <span>mi</span></h2>
+      <h2 class="section-title">Sobre <span>mí</span></h2>
       <div class="title-line"></div>
     </div>
     <div class="about-grid">
       <div class="about-text reveal">
-        <p>Estudiante de master en Big Data y Analitica de Negocio, actualmente realizando practicas en el area de transformacion digital de KPMG. Con formacion previa en Economia, me interesa el analisis de datos, la inteligencia de negocio y la transformacion digital de las empresas.</p>
-        <p>Soy una persona responsable, organizada y con gran capacidad de aprendizaje, adquiriendo competencias en Python, SQL, Power BI y demas herramientas para el analisis de datos.</p>
-        <ul class="contact-list">
-          <li>
-            <div class="icon"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg></div>
-            693 230 275
-          </li>
-          <li>
-            <div class="icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
-            <a href="mailto:sergiolopezzal22@gmail.com">sergiolopezzal22@gmail.com</a>
-          </li>
-          <li>
-            <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
-            Rua Francisco Tettamancy, 17 - CP 15007 - A Coruna
-          </li>
-        </ul>
+        <p>
+          Estudiante de máster en Big Data y Analítica de Negocio, actualmente realizando
+          prácticas en el área de transformación digital de KPMG. Con formación previa en
+          Economía, me interesa el análisis de datos, la inteligencia de negocio y la
+          transformación digital de las empresas.
+        </p>
+        <p>
+          Soy una persona responsable, organizada y con gran capacidad de aprendizaje,
+          adquiriendo competencias en Python, SQL, Power BI y demás herramientas para
+          el análisis de datos.
+        </p>
+        <div class="contact-pills">
+          <a class="contact-pill" href="tel:+34693230275">
+            <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+            <span class="pill-text">693 230 275</span>
+          </a>
+          <a class="contact-pill" href="mailto:sergiolopezzal22@gmail.com">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <span class="pill-text">sergiolopezzal22@gmail.com</span>
+          </a>
+        </div>
       </div>
       <div class="reveal">
         <div class="kpmg-banner">
           <div class="kpmg-label">Actualmente</div>
-          <h3>KPMG - Consulting Corporates</h3>
-          <p>Strategy &amp; Transformation - Practicas en transformacion digital desde enero 2026</p>
+          <h3>KPMG – Consulting Corporates</h3>
+          <p>Strategy &amp; Transformation · Prácticas en transformación digital desde enero 2026</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- EXPERIENCE -->
   <section id="experience">
     <div class="reveal">
       <h2 class="section-title">Experiencia <span>Profesional</span></h2>
@@ -247,19 +338,19 @@
         <div class="tl-card">
           <div class="tl-header">
             <div>
-              <div class="tl-company">KPMG - Consulting Corporates</div>
-              <div class="tl-role">Strategy &amp; Transformation - Practicas</div>
+              <div class="tl-company">KPMG – Consulting Corporates</div>
+              <div class="tl-role">Strategy &amp; Transformation · Prácticas</div>
             </div>
             <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
-              <span class="tl-date">Ene 2026 - actualidad</span>
+              <span class="tl-date">Ene 2026 – actualidad</span>
               <span class="tl-badge-active">En curso</span>
             </div>
           </div>
           <ul class="tl-list">
-            <li>Colaboracion en la elaboracion de estudios, informes y analisis sectoriales.</li>
-            <li>Analisis de datos y generacion de modelos cuantitativos.</li>
-            <li>Procesado y limpieza de datos: depuracion, normalizacion y validacion de fuentes.</li>
-            <li>Elaboracion de visualizaciones y cuadros de mando para comunicacion de resultados.</li>
+            <li>Colaboración en la elaboración de estudios, informes y análisis sectoriales.</li>
+            <li>Análisis de datos y generación de modelos cuantitativos.</li>
+            <li>Procesado y limpieza de datos: depuración, normalización y validación de fuentes.</li>
+            <li>Elaboración de visualizaciones y cuadros de mando para comunicación de resultados.</li>
           </ul>
         </div>
       </div>
@@ -269,13 +360,13 @@
           <div class="tl-header">
             <div>
               <div class="tl-company">Bimba y Lola</div>
-              <div class="tl-role">Departamento de Facturacion - Trabajo Temporal</div>
+              <div class="tl-role">Departamento de Facturación · Trabajo Temporal</div>
             </div>
-            <span class="tl-date">Dic 2024 - Ene 2025</span>
+            <span class="tl-date">Dic 2024 – Ene 2025</span>
           </div>
           <ul class="tl-list">
-            <li>Colaboracion en el area administrativa y de facturacion.</li>
-            <li>Desarrollo de habilidades de trabajo en equipo y atencion al detalle.</li>
+            <li>Colaboración en el área administrativa y de facturación.</li>
+            <li>Desarrollo de habilidades de trabajo en equipo y atención al detalle.</li>
           </ul>
         </div>
       </div>
@@ -287,26 +378,27 @@
               <div class="tl-company">Hotel Robinson Esquinzo Playa</div>
               <div class="tl-role">Ayudante de camarero</div>
             </div>
-            <span class="tl-date">Jul 2023 - Sep 2023</span>
+            <span class="tl-date">Jul 2023 – Sep 2023</span>
           </div>
           <ul class="tl-list">
-            <li>Atencion al cliente en un entorno internacional.</li>
-            <li>Coordinacion con el equipo bajo alta demanda.</li>
-            <li>Fortalecimiento de la comunicacion y gestion del tiempo.</li>
+            <li>Atención al cliente en un entorno internacional.</li>
+            <li>Coordinación con el equipo bajo alta demanda.</li>
+            <li>Fortalecimiento de la comunicación y gestión del tiempo.</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- SKILLS -->
   <section id="skills">
     <div class="reveal">
-      <h2 class="section-title">Habilidades <span>Tecnicas</span></h2>
+      <h2 class="section-title">Habilidades <span>Técnicas</span></h2>
       <div class="title-line"></div>
     </div>
     <div class="skills-grid">
       <div class="reveal">
-        <h3>Herramientas &amp; Tecnologias</h3>
+        <h3>Herramientas &amp; Tecnologías</h3>
         <div class="skill-item">
           <div class="skill-label"><span class="skill-name">Python</span><span class="skill-level">En desarrollo</span></div>
           <div class="skill-bar"><div class="skill-fill" data-width="55"></div></div>
@@ -323,75 +415,77 @@
           <div class="skill-label"><span class="skill-name">Excel &amp; Office 365</span><span class="skill-level">Avanzado</span></div>
           <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
         </div>
-        <h3 style="margin-top:2rem;">Areas de conocimiento</h3>
+        <h3 style="margin-top:2rem;">Áreas de conocimiento</h3>
         <div class="badges-wrap">
-          <span class="badge badge-blue">Consultoria de Negocio</span>
-          <span class="badge badge-blue">Transformacion Digital</span>
+          <span class="badge badge-blue">Consultoría de Negocio</span>
+          <span class="badge badge-blue">Transformación Digital</span>
           <span class="badge badge-blue">Big Data</span>
           <span class="badge badge-blue">Business Intelligence</span>
-          <span class="badge badge-blue">Analisis Sectorial</span>
-          <span class="badge badge-blue">Visualizacion de Datos</span>
-          <span class="badge badge-blue">Economia</span>
+          <span class="badge badge-blue">Análisis Sectorial</span>
+          <span class="badge badge-blue">Visualización de Datos</span>
+          <span class="badge badge-blue">Economía</span>
         </div>
       </div>
       <div class="reveal">
         <h3>Competencias personales</h3>
         <div class="badges-wrap" style="margin-bottom:2rem;">
           <span class="badge">Responsabilidad</span>
-          <span class="badge">Organizacion</span>
+          <span class="badge">Organización</span>
           <span class="badge">Trabajo en equipo</span>
-          <span class="badge">Gestion del tiempo</span>
-          <span class="badge">Atencion al detalle</span>
+          <span class="badge">Gestión del tiempo</span>
+          <span class="badge">Atención al detalle</span>
           <span class="badge">Capacidad de aprendizaje</span>
-          <span class="badge">Comunicacion</span>
+          <span class="badge">Comunicación</span>
         </div>
         <h3>Idiomas</h3>
         <div class="lang-item">
-          <span class="lang-flag">&#127466;&#127480;</span>
-          <div><div class="lang-name">Espanol</div><div class="lang-level">Lengua materna</div></div>
+          <span class="lang-flag">🇪🇸</span>
+          <div><div class="lang-name">Español</div><div class="lang-level">Lengua materna</div></div>
           <span class="lang-tag">Nativo</span>
         </div>
         <div class="lang-item">
-          <span class="lang-flag">&#127468;&#127463;</span>
-          <div><div class="lang-name">Ingles</div><div class="lang-level">Preparando certificacion B2 Cambridge</div></div>
+          <span class="lang-flag">🇬🇧</span>
+          <div><div class="lang-name">Inglés</div><div class="lang-level">Preparando certificación B2 Cambridge</div></div>
           <span class="lang-tag">Intermedio-alto</span>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- EDUCATION -->
   <section id="education">
     <div class="reveal">
-      <h2 class="section-title">Formacion <span>Academica</span></h2>
+      <h2 class="section-title">Formación <span>Académica</span></h2>
       <div class="title-line"></div>
     </div>
     <div class="edu-grid">
       <div class="edu-card reveal">
         <div class="edu-icon"><svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg></div>
-        <div class="edu-degree">Master en Big Data y Analitica de Negocio</div>
-        <div class="edu-school">IFFE Business School - Oleiros (A Coruna)</div>
-        <span class="edu-year">2025 - 2026</span>
+        <div class="edu-degree">Máster en Big Data y Analítica de Negocio</div>
+        <div class="edu-school">IFFE Business School – Oleiros (A Coruña)</div>
+        <span class="edu-year">2025 – 2026</span>
       </div>
       <div class="edu-card reveal">
         <div class="edu-icon"><svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg></div>
-        <div class="edu-degree">Grado en Economia</div>
+        <div class="edu-degree">Grado en Economía</div>
         <div class="edu-school">Universidad de Vigo</div>
-        <span class="edu-year">2020 - 2025</span>
+        <span class="edu-year">2020 – 2025</span>
       </div>
       <div class="edu-card reveal">
         <div class="edu-icon"><svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg></div>
         <div class="edu-degree">Bachillerato</div>
         <div class="edu-school">IES San Paio</div>
-        <span class="edu-year">2018 - 2020</span>
+        <span class="edu-year">2018 – 2020</span>
       </div>
     </div>
   </section>
 
+  <!-- CONTACT -->
   <section id="contact">
     <div class="reveal">
       <h2 class="section-title">Contacto</h2>
       <div class="title-line"></div>
-      <p>Tienes una oportunidad o quieres ponerte en contacto? Estare encantado de leer tu mensaje.</p>
+      <p>¿Tienes una oportunidad o quieres ponerte en contacto? Estaré encantado de leer tu mensaje.</p>
     </div>
     <div class="contact-cards reveal">
       <a class="contact-card" href="mailto:sergiolopezzal22@gmail.com">
@@ -400,16 +494,12 @@
       </a>
       <a class="contact-card" href="tel:+34693230275">
         <div class="cc-icon"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg></div>
-        <div><div class="cc-label">Telefono</div><div class="cc-value">+34 693 230 275</div></div>
+        <div><div class="cc-label">Teléfono</div><div class="cc-value">+34 693 230 275</div></div>
       </a>
-      <div class="contact-card">
-        <div class="cc-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
-        <div><div class="cc-label">Ubicacion</div><div class="cc-value">A Coruna, Espana</div></div>
-      </div>
     </div>
   </section>
 
-  <footer>2026 Sergio Lopez Alvarez - Todos los derechos reservados</footer>
+  <footer>© 2026 Sergio López Álvarez · Todos los derechos reservados</footer>
 
   <script>
     const observer = new IntersectionObserver((entries) => {
